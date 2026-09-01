@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+exec uvx \
+  --from git+https://github.com/jdegregorio/musterctl.git@v0.1.1 \
+  musterctl-build \
+  --skill-output "$repo_root/skills/musterctl/SKILL.md" \
+  --skill-only \
+  --check
