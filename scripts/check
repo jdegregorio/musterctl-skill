@@ -9,6 +9,6 @@ if [[ -e skills ]]; then
   exit 1
 fi
 
-rg --fixed-strings \
+grep --fixed-strings \
   "https://github.com/jdegregorio/musterctl/tree/main/skills/musterctl" \
   README.md >/dev/null
