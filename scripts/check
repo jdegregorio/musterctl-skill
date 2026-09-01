@@ -2,9 +2,13 @@
 set -euo pipefail
 
 repo_root="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-exec uvx \
-  --from git+https://github.com/jdegregorio/musterctl.git@v0.1.1 \
-  musterctl-build \
-  --skill-output "$repo_root/skills/musterctl/SKILL.md" \
-  --skill-only \
-  --check
+cd "$repo_root"
+
+if [[ -e skills ]]; then
+  echo "archive_boundary_error: this redirect must not contain skill source" >&2
+  exit 1
+fi
+
+grep --fixed-strings \
+  "https://github.com/jdegregorio/musterctl/tree/main/skills/musterctl" \
+  README.md >/dev/null
