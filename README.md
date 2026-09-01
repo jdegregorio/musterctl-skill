@@ -1,11 +1,11 @@
-# musterctl skill
+# musterctl skill moved
 
-The generated Agent Skill that teaches coding agents when and how to discover
-the installed `musterctl` control plane. The live CLI remains authoritative.
+The canonical musterctl Agent Skill is now generated and versioned beside the
+CLI source:
 
-```bash
-npx -y skills@1.5.23 add jdegregorio/musterctl-skill --skill musterctl
-```
+<https://github.com/jdegregorio/musterctl/tree/main/skills/musterctl>
 
-`skills/musterctl/SKILL.md` is generated from `musterctl` v0.1.1 metadata. Run
-`./scripts/check` to verify it has not drifted.
+Catalogs should pin the `skills/musterctl` directory from the
+[`jdegregorio/musterctl`](https://github.com/jdegregorio/musterctl) repository.
+This repository is retained only as an archived redirect and no longer contains
+skill source.
